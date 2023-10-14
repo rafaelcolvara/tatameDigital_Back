@@ -1,5 +1,6 @@
 package com.arena.competidor.entity
 
+import com.arena.endereco.entity.Endereco
 import jakarta.persistence.*
 
 
@@ -24,7 +25,8 @@ data class Competidor(
     @Column(name = "id_Faixa")
     val idFaixa: Int?,
 
-    @Column(name = "id_Endereco")
-    val idEndereco: Int?
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "endereco_id")
+    val endereco: Endereco
 
 )
