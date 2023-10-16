@@ -11,7 +11,7 @@ data class Competidor(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true, updatable = false)
-    val id: Long,
+    val id: Long ? = null,
 
     @Column(name = "nome", nullable = false)
     val nome: String,
@@ -20,13 +20,12 @@ data class Competidor(
     val dtNascimento: java.time.LocalDate,
 
     @Column(name = "id_Academia")
-    val idAcademia: Int?,
+    val idAcademia: Int? = null,
 
     @Column(name = "id_Faixa")
-    val idFaixa: Int?,
+    val idFaixa: Int? = null,
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "endereco_id")
-    val endereco: Endereco
+    @Column(name = "endereco_id")
+    val enderecoId: Long
 
 )

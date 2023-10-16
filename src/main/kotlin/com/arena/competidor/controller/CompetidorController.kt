@@ -1,6 +1,7 @@
 package com.arena.competidor.controller
 
 import com.arena.competidor.entity.Competidor
+import com.arena.competidor.entity.CompetidorForm
 import com.arena.competidor.service.CompetidorService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -22,12 +23,12 @@ class CompetidorController(private val service: CompetidorService) {
     }
 
     @PostMapping
-    fun create(@RequestBody competidor: Competidor): ResponseEntity<Competidor> {
+    fun create(@RequestBody competidor: CompetidorForm): ResponseEntity<Competidor> {
         return ResponseEntity.ok(service.save(competidor))
     }
 
     @PutMapping("/{id}")
-    fun update(@PathVariable id: Short, @RequestBody updatedCompetidor: Competidor): ResponseEntity<Competidor> {
+    fun update(@PathVariable id: Short, @RequestBody updatedCompetidor: CompetidorForm): ResponseEntity<Competidor> {
         if (service.findById(id) == null) return ResponseEntity.notFound().build()
         return ResponseEntity.ok(service.save(updatedCompetidor))
     }
