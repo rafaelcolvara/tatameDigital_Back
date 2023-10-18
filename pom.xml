@@ -59,6 +59,14 @@
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>1.6.15</version>
 		</dependency>
+		<dependency>
+			<groupId>org.mockito.kotlin</groupId>
+			<artifactId>mockito-kotlin</artifactId>
+			<version>5.1.0</version>
+			<scope>test</scope>
+		</dependency>
+
+
 
 	</dependencies>
 
@@ -94,6 +102,15 @@
 						<version>${kotlin.version}</version>
 					</dependency>
 				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>18</source>
+					<target>18</target>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

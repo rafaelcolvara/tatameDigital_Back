@@ -2,6 +2,7 @@ package com.arena.competidor.entity
 
 import com.arena.endereco.entity.Endereco
 import jakarta.persistence.*
+import java.util.*
 
 
 @Entity
@@ -17,7 +18,7 @@ data class Competidor(
     val nome: String,
 
     @Column(name = "dtNascimento", nullable = false)
-    val dtNascimento: java.time.LocalDate,
+    val dtNascimento: Date,
 
     @Column(name = "id_Academia")
     val idAcademia: Int? = null,
