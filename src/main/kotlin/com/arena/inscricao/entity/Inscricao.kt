@@ -19,8 +19,10 @@ data class Inscricao(
 
     @Column(name = "idEvento", nullable = false)
     val id_Evento: Int?,
+
     @Column(name = "idCategoria", nullable= false)
     val id_Categoria: Int?,
+
     @Column(name = "idCompetidor", nullable = false)
     val id_Competidor: Int?
 )
