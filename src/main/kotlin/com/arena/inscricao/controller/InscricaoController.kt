@@ -1,13 +1,9 @@
 package com.arena.inscricao.controller
 
-import com.arena.categoria.entity.Categoria
-import com.arena.categoria.entity.CategoriaForm
 import com.arena.inscricao.entity.Inscricao
 import com.arena.inscricao.entity.InscricaoForm
 import com.arena.inscricao.service.InscricaoService
-import jakarta.persistence.Id
 import org.springframework.http.ResponseEntity
-import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.*
 
 @RestController

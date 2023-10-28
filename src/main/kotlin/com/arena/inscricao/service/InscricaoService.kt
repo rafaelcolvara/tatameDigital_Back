@@ -3,8 +3,10 @@ package com.arena.inscricao.service
 import com.arena.inscricao.entity.Inscricao
 import com.arena.inscricao.entity.InscricaoForm
 import com.arena.inscricao.repository.InscricaoRepository
+import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
+@Service
 class InscricaoService (private val inscricaoRepository: InscricaoRepository){
 
     @Transactional(readOnly = true)

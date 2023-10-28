@@ -4,6 +4,7 @@ import com.arena.competidor.entity.Competidor
 import com.arena.competidor.entity.CompetidorForm
 import com.arena.competidor.repository.CompetidorRepository
 import com.arena.competidor.service.CompetidorService
+import com.arena.endereco.entity.Cidade
 import com.arena.endereco.entity.CidadeForm
 import com.arena.endereco.entity.Endereco
 import com.arena.endereco.entity.EnderecoForm
@@ -64,7 +65,8 @@ class CompetidorServiceTest {
     fun testSave() {
         // Arrange
         val competidorForm = CompetidorForm("New Competidor", Date(), null, null, EnderecoForm("Rua", "", 0,"11630-000", CidadeForm("Cidade" ) ))
-        val endereco = Endereco(1, "Address", "", 1, "09090909", 1)
+        val endereco = Endereco(1, "Address", "", 1, "09090909", Cidade(1, "Carapicuba" )
+        )
         `when`(enderecoService.save(anyOrNull())).thenReturn(endereco)
         `when`(repository.save(any())).thenAnswer { invocation ->
             val savedCompetidor = invocation.arguments[0] as Competidor

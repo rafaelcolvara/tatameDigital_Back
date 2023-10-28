@@ -5,8 +5,9 @@ import com.arena.categoria.entity.CategoriaForm
 import com.arena.evento.entity.Evento
 import com.arena.evento.entity.EventoForm
 import com.arena.evento.repository.EventoRepository
+import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-
+@Service
 data class EventoService(private val eventoRepository: EventoRepository){
 
     @Transactional(readOnly = true)

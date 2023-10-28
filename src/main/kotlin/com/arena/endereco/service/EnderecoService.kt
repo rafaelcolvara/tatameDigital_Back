@@ -18,7 +18,7 @@ private val cidadeService: CidadeService) {
                 complemento = endereco.complemento,
                 numero = endereco.numero,
                 cep = endereco.cep,
-                cidade = cidadeService.save(endereco.cidade).id!!.toLong()
+                cidade = cidadeService.save(endereco.cidade)
             )
         )
     }

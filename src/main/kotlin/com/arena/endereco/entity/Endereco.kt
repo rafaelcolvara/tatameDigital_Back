@@ -1,6 +1,6 @@
 package com.arena.endereco.entity
 
-import com.arena.competidor.entity.Competidor
+
 import jakarta.persistence.*
 
 @Entity
@@ -22,6 +22,8 @@ data class Endereco(
     @Column(name = "cep", length = 9)
     var cep: String? = null,
 
-    @Column(name = "id_cidade")
-    val cidade: Long
+    @ManyToOne
+    @JoinColumn(name = "id_cidade", nullable = false)
+    val cidade: Cidade
+
 )

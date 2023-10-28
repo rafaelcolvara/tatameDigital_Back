@@ -10,5 +10,9 @@ data class Cidade(
     var id: Int? = null,
 
     @Column(name = "nome", nullable = false)
-    var nome: String
+    var nome: String,
+
+    @OneToMany(mappedBy = "cidade")
+    var enderecos: List<Endereco> = mutableListOf()
+
 )
