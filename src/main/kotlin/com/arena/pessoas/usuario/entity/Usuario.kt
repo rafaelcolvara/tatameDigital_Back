@@ -1,4 +1,4 @@
-package com.arena.usuario.entity
+package com.arena.pessoas.usuario.entity
 
 import jakarta.persistence.*
 

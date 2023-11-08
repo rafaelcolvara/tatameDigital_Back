@@ -1,11 +1,9 @@
-package com.arena.usuario.repository
+package com.arena.pessoas.usuario.repository
 
-import com.arena.inscricao.entity.Inscricao
-import com.arena.usuario.entity.Usuario
+import com.arena.pessoas.usuario.entity.Usuario
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
-import org.springframework.transaction.annotation.Transactional
 import java.util.*
 @Repository
 interface UsuarioRepository : JpaRepository<Usuario, Long> {

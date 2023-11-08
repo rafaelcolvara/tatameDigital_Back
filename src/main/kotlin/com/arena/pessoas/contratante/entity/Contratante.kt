@@ -1,4 +1,4 @@
-package com.arena.contratante.entity
+package com.arena.pessoas.contratante.entity
 
 import jakarta.persistence.*
 

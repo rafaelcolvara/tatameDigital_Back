@@ -1,4 +1,4 @@
-package com.arena.competidor.entity
+package com.arena.pessoas.competidor.entity
 
 import com.arena.endereco.entity.EnderecoForm
 import java.util.Date

@@ -1,4 +1,4 @@
-package com.arena.professor.entity
+package com.arena.pessoas.professor.entity
 
 import jakarta.persistence.*
 

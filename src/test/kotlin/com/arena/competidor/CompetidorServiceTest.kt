@@ -1,9 +1,9 @@
 package com.arena.competidor
 
-import com.arena.competidor.entity.Competidor
-import com.arena.competidor.entity.CompetidorForm
-import com.arena.competidor.repository.CompetidorRepository
-import com.arena.competidor.service.CompetidorService
+import com.arena.pessoas.competidor.entity.Competidor
+import com.arena.pessoas.competidor.entity.CompetidorForm
+import com.arena.pessoas.competidor.repository.CompetidorRepository
+import com.arena.pessoas.competidor.service.CompetidorService
 import com.arena.endereco.entity.Cidade
 import com.arena.endereco.entity.CidadeForm
 import com.arena.endereco.entity.Endereco

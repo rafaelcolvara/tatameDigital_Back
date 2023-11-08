@@ -1,8 +1,8 @@
-package com.arena.competidor.controller
+package com.arena.pessoas.competidor.controller
 
-import com.arena.competidor.entity.Competidor
-import com.arena.competidor.entity.CompetidorForm
-import com.arena.competidor.service.CompetidorService
+import com.arena.pessoas.competidor.entity.Competidor
+import com.arena.pessoas.competidor.entity.CompetidorForm
+import com.arena.pessoas.competidor.service.CompetidorService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 

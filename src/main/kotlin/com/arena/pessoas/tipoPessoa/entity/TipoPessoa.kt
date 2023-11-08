@@ -1,8 +1,9 @@
 package com.arena.usuario.entity
 
-import com.arena.competidor.entity.Competidor
-import com.arena.contratante.entity.Contratante
-import com.arena.professor.entity.Professor
+import com.arena.pessoas.competidor.entity.Competidor
+import com.arena.pessoas.contratante.entity.Contratante
+import com.arena.pessoas.professor.entity.Professor
+import com.arena.pessoas.usuario.entity.Usuario
 import jakarta.persistence.*
 
 

@@ -1,6 +1,5 @@
-package com.arena.competidor.entity
+package com.arena.pessoas.competidor.entity
 
-import com.arena.endereco.entity.Endereco
 import jakarta.persistence.*
 import java.util.*
 

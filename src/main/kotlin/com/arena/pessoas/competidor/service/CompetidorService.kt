@@ -1,8 +1,8 @@
-package com.arena.competidor.service
+package com.arena.pessoas.competidor.service
 
-import com.arena.competidor.entity.Competidor
-import com.arena.competidor.entity.CompetidorForm
-import com.arena.competidor.repository.CompetidorRepository
+import com.arena.pessoas.competidor.entity.Competidor
+import com.arena.pessoas.competidor.entity.CompetidorForm
+import com.arena.pessoas.competidor.repository.CompetidorRepository
 import com.arena.endereco.service.EnderecoService
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
