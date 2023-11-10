@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+ Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="1.1.0-alpha" use-changelog="false" last-position="0,138" last-zoom="0.6" max-obj-count="24"
+	 default-schema="public" default-owner="postgres"
+	 layers="Default layer"
+	 active-layers="0"
+	 layer-name-colors="#000000"
+	 layer-rect-colors="#b4b4b4"
+	 show-layer-names="false" show-layer-rects="false">
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layers="0" fill-color="#e1e1e1" name-color="#000000" sql-disabled="true">
+</schema>
+
+<schema name="Arena" layers="0" rect-visible="true" fill-color="#e1e1e1" name-color="#31363b">
+	<role name="postgres"/>
+</schema>
+
+<table name="Competidor" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="540" y="40"/>
+
+	<customidxs object-type="column">
+		<object name="id_Academia" index="0"/>
+		<object name="id_Faixa" index="1"/>
+		<object name="id_Pessoa" index="2"/>
+	</customidxs>
+	<customidxs object-type="constraint">
+		<object name="Academia_fk" index="0"/>
+		<object name="Competidor_uq" index="2"/>
+		<object name="Faixa_fk" index="1"/>
+		<object name="Pessoa_fk" index="3"/>
+	</customidxs></table>
+
+<table name="Academia" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="60" y="440"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="nome">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Academias_pk" type="pk-constr" table="public.&quot;Academia&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Categoria" layers="0" collapse-mode="2" pagination="true" attribs-page="0" ext-attribs-page="0" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="100" y="1000"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="nome">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Categorias_pk" type="pk-constr" table="public.&quot;Categoria&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Faixa" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="60" y="100"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="cor">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Faixas_pk" type="pk-constr" table="public.&quot;Faixa&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="Academias_has_many_Competidores" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#bd92f5"
+	 src-table="public.&quot;Academia&quot;"
+	 dst-table="public.&quot;Competidor&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="Endereco" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1420" y="280"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="rua" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="complemento">
+		<type name="text" length="0"/>
+	</column>
+	<column name="numero">
+		<type name="int4" length="0"/>
+	</column>
+	<column name="CEP">
+		<type name="varchar" length="9"/>
+	</column>
+	<constraint name="Enderecos_pk" type="pk-constr" table="public.&quot;Endereco&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_Cidade" index="4"/>
+	</customidxs>
+	<customidxs object-type="constraint">
+		<object name="Cidade_fk" index="1"/>
+	</customidxs></table>
+
+<table name="Cidade" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1920" y="560"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Cidades_pk" type="pk-constr" table="public.&quot;Cidade&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="Faixas_has_many_Competidores" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#f5428a"
+	 src-table="public.&quot;Faixa&quot;"
+	 dst-table="public.&quot;Competidor&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Cidades_has_many_Enderecos" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#ba85c4"
+	 src-table="public.&quot;Cidade&quot;"
+	 dst-table="public.&quot;Endereco&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="Area" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1560" y="1100"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="nome">
+		<type name="text" length="0"/>
+	</column>
+	<column name="obs">
+		<type name="text" length="0"/>
+	</column>
+	<column name="hrInicioCombate">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="hrFimCombate">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="Area_pk" type="pk-constr" table="public.&quot;Area&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_Chave" index="2"/>
+		<object name="id_Pessoa" index="6"/>
+	</customidxs>
+	<customidxs object-type="constraint">
+		<object name="Area_uq" index="2"/>
+		<object name="Chave_fk" index="1"/>
+		<object name="Pessoa_fk" index="3"/>
+	</customidxs></table>
+
+<table name="Evento" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1520" y="720"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="dtEvento" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="imagemCard">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Evento_pk" type="pk-constr" table="public.&quot;Evento&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_Endereco" index="4"/>
+		<object name="id_Pessoa" index="5"/>
+	</customidxs>
+	<customidxs object-type="constraint">
+		<object name="Endereco_fk" index="1"/>
+		<object name="Pessoa_fk" index="2"/>
+	</customidxs></table>
+
+<table name="Chave" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="920" y="1260"/>
+	<column name="id" not-null="true">
+		<type name="int8" length="0"/>
+	</column>
+	<constraint name="chaves_pk" type="pk-constr" table="public.&quot;Chave&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="inscricao" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="100" y="1280"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="pago">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="dtIncricao">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="incricoes_pk" type="pk-constr" table="public.inscricao">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_Categoria" index="4"/>
+		<object name="id_Evento" index="3"/>
+	</customidxs>
+	<customidxs object-type="constraint">
+		<object name="Categoria_fk" index="2"/>
+		<object name="Evento_fk" index="0"/>
+		<object name="inscricao_uq" index="3"/>
+	</customidxs></table>
+
+<relationship name="Evento_has_many_incricoes" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#19a94e"
+	 src-table="public.&quot;Evento&quot;"
+	 dst-table="public.inscricao"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="incricoes_has_one_Categorias" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#beb690"
+	 src-table="public.&quot;Categoria&quot;"
+	 dst-table="public.inscricao"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="inscricao_has_many_Chave" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#b439ba"
+	 src-table="public.inscricao"
+	 dst-table="public.&quot;Chave&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="inscricao_has_many_Chave_2" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#701231"
+	 src-table="public.inscricao"
+	 dst-table="public.&quot;Chave&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Area_has_one_Chave" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#2cc1d9"
+	 src-table="public.&quot;Chave&quot;"
+	 dst-table="public.&quot;Area&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="resultado_combate" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1500" y="1580"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="resultado_combate_pk" type="pk-constr" table="public.resultado_combate">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="resultado_combate_has_one_Area" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#ab1b03"
+	 src-table="public.&quot;Area&quot;"
+	 dst-table="public.resultado_combate"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="resultado_combate_has_one_inscricao" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#9438e5"
+	 src-table="public.inscricao"
+	 dst-table="public.resultado_combate"
+	 src-required="false" dst-required="false"/>
+
+<table name="Usuario" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="320" y="720"/>
+	<column name="loginEmail" alias="email" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="senha" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="habilitado" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="emailValido">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="Usuario_pk" type="pk-constr" table="public.&quot;Usuario&quot;">
+		<columns names="loginEmail" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_Pessoa" index="2"/>
+	</customidxs>
+	<customidxs object-type="constraint">
+		<object name="Pessoa_fk" index="0"/>
+		<object name="Usuario_uq" index="1"/>
+	</customidxs></table>
+
+<relationship name="Endereco_has_many_Evento" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#bdaaca"
+	 src-table="public.&quot;Endereco&quot;"
+	 dst-table="public.&quot;Evento&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="Pessoa" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="920" y="640"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="dtNascimento" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="celular" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="cpf" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="foto">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Pessoa_pk" type="pk-constr" table="public.&quot;Pessoa&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_Endereco" index="6"/>
+	</customidxs>
+	<customidxs object-type="constraint">
+		<object name="Endereco_fk" index="1"/>
+		<object name="Pessoa_uq" index="2"/>
+	</customidxs></table>
+
+<table name="TipoPessoa" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1540" y="40"/>
+	<column name="id" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="descricao" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="TipoPessoa_pk" type="pk-constr" table="public.&quot;TipoPessoa&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="PapelPessoa" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="980" y="40"/>
+	<column name="dtInicio" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="dtFim" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="id_Pessoa" index="3"/>
+		<object name="id_TipoPessoa" index="2"/>
+	</customidxs>
+	<customidxs object-type="constraint">
+		<object name="Pessoa_fk" index="1"/>
+		<object name="TipoPessoa_fk" index="0"/>
+	</customidxs></table>
+
+<relationship name="TipoPessoa_has_many_PapelPessoa" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#cacd6d"
+	 src-table="public.&quot;TipoPessoa&quot;"
+	 dst-table="public.&quot;PapelPessoa&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="Pessoa_has_many_PapelPessoa" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#4cbd99"
+	 src-table="public.&quot;Pessoa&quot;"
+	 dst-table="public.&quot;PapelPessoa&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Usuario_has_one_Pessoa" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#985fc1"
+	 src-table="public.&quot;Pessoa&quot;"
+	 dst-table="public.&quot;Usuario&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Pessoa_has_many_Evento" type="rel1n" layers="0" alias="Organizador"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#794e65"
+	 src-table="public.&quot;Pessoa&quot;"
+	 dst-table="public.&quot;Evento&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Competidor_has_one_Pessoa" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#19d2c5"
+	 src-table="public.&quot;Pessoa&quot;"
+	 dst-table="public.&quot;Competidor&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Pessoa_has_many_inscricao" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#3efdb7"
+	 src-table="public.&quot;Pessoa&quot;"
+	 dst-table="public.inscricao"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Academia_has_one_Pessoa" type="rel11" layers="0" alias="Professor"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#0ffba8"
+	 src-table="public.&quot;Pessoa&quot;"
+	 dst-table="public.&quot;Academia&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Pessoa_has_one_Endereco" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#12f4d9"
+	 src-table="public.&quot;Endereco&quot;"
+	 dst-table="public.&quot;Pessoa&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Pessoa_has_many_Area" type="rel1n" layers="0" alias="Mesarios"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#72a8bb"
+	 src-table="public.&quot;Pessoa&quot;"
+	 dst-table="public.&quot;Area&quot;"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>
