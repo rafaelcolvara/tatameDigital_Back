@@ -6,7 +6,7 @@ import com.tatame.categoria.service.CategoriaService
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-@Tag(name = "Categorias")
+@Tag(name = "Categoria")
 @RestController
 @RequestMapping("/categorias")
 class CategoriaController(private val categoriaService: CategoriaService) {

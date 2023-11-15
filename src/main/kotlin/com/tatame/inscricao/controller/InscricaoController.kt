@@ -3,9 +3,11 @@ package com.tatame.inscricao.controller
 import com.tatame.inscricao.entity.Inscricao
 import com.tatame.inscricao.entity.InscricaoForm
 import com.tatame.inscricao.service.InscricaoService
+import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
+@Tag(name = "Inscrições")
 @RestController
 @RequestMapping("/inscricoes")
 class InscricaoController (private val inscricaoService: InscricaoService){

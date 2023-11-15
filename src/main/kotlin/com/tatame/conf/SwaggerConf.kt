@@ -17,7 +17,9 @@ class SwaggerConf {
     fun api(): GroupedOpenApi {
         return GroupedOpenApi.builder()
             .group("tatame-digital")
-            .packagesToScan("com.tatame.categoria.controller")
+            .packagesToScan("com.tatame.categoria.controller",
+                "com.tatame.pessoas.competidor.controller",
+                "com.tatame.evento.controller")
             .build()
     }
 
@@ -25,8 +27,8 @@ class SwaggerConf {
     fun springOpenAPI(): OpenAPI? {
         return OpenAPI()
             .info(
-                Info().title("Micro service").description("APIs for Test Console service").version("1.0")
-                    .license(License().name("Dev Team").url("https://github.com"))
+                Info().title("Tatame Digital - API").description("APIs do Tatame Digital").version("1.0")
+                    .license(License().name("TatameDigital.com").url("http://www.tatameDigital.com.br"))
             )
             .externalDocs(ExternalDocumentation().description("Test Documentation").url("https://github.com"))
     }

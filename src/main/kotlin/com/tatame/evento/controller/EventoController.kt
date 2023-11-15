@@ -3,8 +3,10 @@ package com.tatame.evento.controller
 import com.tatame.evento.entity.Evento
 import com.tatame.evento.entity.EventoForm
 import com.tatame.evento.service.EventoService
+import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+@Tag(name = "Eventos")
 @RestController
 @RequestMapping("/eventos")
 class EventoController(private val eventoService: EventoService ) {

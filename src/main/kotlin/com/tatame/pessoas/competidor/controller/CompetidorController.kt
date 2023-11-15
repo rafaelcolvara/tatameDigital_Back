@@ -3,10 +3,12 @@ package com.tatame.pessoas.competidor.controller
 import com.tatame.pessoas.competidor.entity.Competidor
 import com.tatame.pessoas.competidor.entity.CompetidorForm
 import com.tatame.pessoas.competidor.service.CompetidorService
+import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 
+@Tag(name = "Competidores")
 @RestController
 @RequestMapping("/competidores")
 class CompetidorController(private val service: CompetidorService) {
