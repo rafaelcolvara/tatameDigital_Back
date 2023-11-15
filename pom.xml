@@ -14,8 +14,8 @@
 	<name>tatame-digital</name>
 	<description>Tatame Digital</description>
 	<properties>
-		<java.version>11</java.version>
-		<kotlin.version>1.8.22</kotlin.version>
+		<java.version>17</java.version>
+		<kotlin.version>2.0.0-Beta1</kotlin.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -29,7 +29,16 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+			<version>2.2.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -38,12 +47,6 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.module</groupId>
 			<artifactId>jackson-module-kotlin</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>4.0.1</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.jetbrains.kotlin</groupId>
@@ -64,11 +67,6 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-ui</artifactId>
-			<version>1.6.15</version>
-		</dependency>
-		<dependency>
 			<groupId>org.mockito.kotlin</groupId>
 			<artifactId>mockito-kotlin</artifactId>
 			<version>5.1.0</version>
@@ -78,7 +76,7 @@
 
 	<build>
 		<sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
-		<testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+		<testSourceDirectory>${project.basedir}/src/test</testSourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -108,6 +106,7 @@
 						<artifactId>kotlin-maven-noarg</artifactId>
 						<version>${kotlin.version}</version>
 					</dependency>
+
 				</dependencies>
 			</plugin>
 			<plugin>

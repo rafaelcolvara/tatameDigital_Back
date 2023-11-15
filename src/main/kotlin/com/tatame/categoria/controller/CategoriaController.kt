@@ -3,8 +3,10 @@ package com.tatame.categoria.controller
 import com.tatame.categoria.entity.Categoria
 import com.tatame.categoria.entity.CategoriaForm
 import com.tatame.categoria.service.CategoriaService
+import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+@Tag(name = "Categorias")
 @RestController
 @RequestMapping("/categorias")
 class CategoriaController(private val categoriaService: CategoriaService) {
