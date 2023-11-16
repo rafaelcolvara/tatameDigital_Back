@@ -19,7 +19,8 @@ class SwaggerConf {
             .group("tatame-digital")
             .packagesToScan("com.tatame.categoria.controller",
                 "com.tatame.pessoas.competidor.controller",
-                "com.tatame.evento.controller")
+                "com.tatame.evento.controller",
+                "com.tatame.endereco.controller")
             .build()
     }
 

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service
 @Transactional
 class EnderecoService(private val enderecoRepository: EnderecoRepository,
 private val cidadeService: CidadeService) {
-    fun findAll(): List<Endereco> = enderecoRepository.findAll()
+    fun findAll(): List<Endereco> = enderecoRepository.findAllEnderecos()
     fun save(endereco: EnderecoForm): Endereco {
         return enderecoRepository.save(
             Endereco(
