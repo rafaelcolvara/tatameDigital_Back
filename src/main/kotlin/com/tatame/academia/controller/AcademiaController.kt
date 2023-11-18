@@ -3,12 +3,8 @@ package com.tatame.academia.controller
 import com.tatame.academia.entity.Academia
 import com.tatame.academia.entity.AcademiaForm
 import com.tatame.academia.service.AcademiaService
-import com.tatame.categoria.entity.Categoria
-import com.tatame.categoria.entity.CategoriaForm
-import com.tatame.categoria.service.CategoriaService
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.ResponseEntity
-import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 
 

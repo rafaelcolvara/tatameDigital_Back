@@ -51,6 +51,7 @@ class CompetidorService(
                     nome = competidor.nomeCompetidor,
                     dataNascimento = competidor.dataNascimento,
                     celular = competidor.celular,
+                    dddCelular = competidor.dddCelular,
                     cpfCnpj = competidor.cnpjcpj,
                     foto = competidor.foto,
                     endereco =enderecoCompeenderecoStidor )

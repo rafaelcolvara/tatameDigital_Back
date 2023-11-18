@@ -20,10 +20,13 @@ class Pessoa(
     @Column(name = "dtNascimento", nullable = false)
     val dataNascimento: Date?,
 
-    @Column(nullable = false)
-    val celular: String,
+    @Column(name = "dddCelular", nullable = false)
+    val dddCelular: Int,
 
-    @Column(nullable = false)
+    @Column(name = "celular", nullable = false)
+    val celular: Int,
+
+    @Column(name = "cpfcnpj", nullable = false)
     val cpfCnpj: BigInteger?,
 
     @Column(name = "foto")

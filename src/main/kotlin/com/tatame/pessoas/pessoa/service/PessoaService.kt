@@ -30,6 +30,7 @@ class PessoaService(private val repository: PessoaRepository,
                 dataNascimento = pessoa.dataNascimento,
                 celular = pessoa.celular,
                 cpfCnpj = pessoa.cpfCnpj,
+                dddCelular = pessoa.dddCelular,
                 foto = pessoa.foto,
                 endereco = Endereco(id = pessoa.endereco!!.id, rua = pessoa.endereco.rua, numero = pessoa.endereco.numero, complemento = pessoa.endereco.complemento, cep = pessoa.endereco.cep, cidade = Cidade(id= pessoa.endereco.cidade.id, nome = pessoa.endereco.cidade.nome ))
             )

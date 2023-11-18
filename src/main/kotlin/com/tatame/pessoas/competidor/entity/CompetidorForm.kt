@@ -11,7 +11,8 @@ data class CompetidorForm(
     val idFaixa: Int,
     val nomeCompetidor: String,
     val dataNascimento: Date,
-    val celular: String,
+    val celular: Int,
+    val dddCelular: Int,
     val cnpjcpj: BigInteger,
     val foto: String,
     val endereco: EnderecoForm
