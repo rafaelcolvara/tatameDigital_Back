@@ -20,7 +20,8 @@ class SwaggerConf {
             .packagesToScan("com.tatame.categoria.controller",
                 "com.tatame.pessoas.competidor.controller",
                 "com.tatame.evento.controller",
-                "com.tatame.endereco.controller")
+                "com.tatame.endereco.controller",
+                "com.tatame.academia.controller")
             .build()
     }
 

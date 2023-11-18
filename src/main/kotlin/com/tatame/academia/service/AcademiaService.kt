@@ -9,8 +9,10 @@ import com.tatame.categoria.repository.CategoriaRepository
 import com.tatame.pessoas.pessoa.entity.Pessoa
 import com.tatame.pessoas.pessoa.repository.PessoaRepository
 import com.tatame.pessoas.pessoa.service.PessoaService
+import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
+@Service
 class AcademiaService(private val academiaRepository: AcademiaRepository,
     private val pessoaRepository: PessoaRepository
 ) {
