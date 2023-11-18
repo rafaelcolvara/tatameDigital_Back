@@ -15,5 +15,12 @@ data class Evento(
     val nome: String,
 
     @Column(name = "dtEvento", nullable = false)
-    val dtEvento: LocalDate
+    val dtEvento: LocalDate,
+
+    @Column(name = "fotoEvento", nullable = true)
+    val fotoEvento: String
+
+
+
+
 )

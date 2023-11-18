@@ -1,14 +1,19 @@
 package com.tatame.pessoas.competidor.entity
 
 
-import com.tatame.academia.entity.Academia
-import com.tatame.faixa.entity.Faixa
-import com.tatame.pessoas.pessoa.entity.Pessoa
+import com.tatame.endereco.entity.EnderecoForm
+import java.math.BigInteger
+import java.util.Date
 
 data class CompetidorForm(
 
-    val academia: Academia,
-    val faixa: Faixa,
-    val pessoa: Pessoa
+    val idAcademia: Int,
+    val idFaixa: Int,
+    val nomeCompetidor: String,
+    val dataNascimento: Date,
+    val celular: String,
+    val cnpjcpj: BigInteger,
+    val foto: String,
+    val endereco: EnderecoForm
 
 )

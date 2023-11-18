@@ -16,7 +16,7 @@ data class EventoService(private val eventoRepository: EventoRepository){
 
     @Transactional
     fun save(evento: EventoForm): Evento = eventoRepository.save(
-        Evento( nome = evento.nome, dtEvento = evento.dtEvento)
+        Evento( nome = evento.nome, dtEvento = evento.dtEvento, fotoEvento = evento.fotoEvento)
     )
     @Transactional
     fun deleteById(id: Int) = eventoRepository.deleteById(id)

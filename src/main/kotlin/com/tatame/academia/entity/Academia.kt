@@ -10,12 +10,12 @@ class Academia(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    val id: Int?,
 
     @Column(nullable = false)
     val nome: String,
 
     @OneToOne
-    @JoinColumn(name = "id_Pessoa")
-    val pessoa: Pessoa?
+    @JoinColumn(name = "id_Professor")
+    val professor: Pessoa?
 )

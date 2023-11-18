@@ -5,5 +5,5 @@ data class EnderecoForm(
     var complemento: String? = null,
     var numero: Int? = null,
     var cep: String? = null,
-    var cidade: CidadeForm,
+    var idCidade: Int,
 )

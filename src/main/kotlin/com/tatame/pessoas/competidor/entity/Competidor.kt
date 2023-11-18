@@ -28,5 +28,4 @@ class Competidor(
     @JoinColumn(name = "id_Pessoa")
     val pessoa: Pessoa
 
-
 )

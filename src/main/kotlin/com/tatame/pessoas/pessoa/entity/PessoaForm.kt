@@ -4,6 +4,7 @@ import com.tatame.endereco.entity.Endereco
 import jakarta.persistence.Column
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
+import java.math.BigInteger
 import java.util.*
 
 data class PessoaForm(
@@ -12,7 +13,7 @@ data class PessoaForm(
     val nome: String,
     val dataNascimento: Date,
     val celular: String,
-    val cpfCnpj: Long,
+    val cpfCnpj: BigInteger,
     val foto: String?,
     val endereco: Endereco?
 )

@@ -1,13 +1,8 @@
 package com.tatame.pessoas.pessoa.service
 
-import com.tatame.academia.entity.Academia
 import com.tatame.endereco.entity.Cidade
 import com.tatame.endereco.entity.Endereco
 import com.tatame.endereco.service.EnderecoService
-import com.tatame.faixa.entity.Faixa
-import com.tatame.pessoas.competidor.entity.Competidor
-import com.tatame.pessoas.competidor.entity.CompetidorForm
-import com.tatame.pessoas.competidor.repository.CompetidorRepository
 import com.tatame.pessoas.pessoa.entity.Pessoa
 import com.tatame.pessoas.pessoa.entity.PessoaForm
 import com.tatame.pessoas.pessoa.repository.PessoaRepository
@@ -30,8 +25,8 @@ class PessoaService(private val repository: PessoaRepository,
     @Transactional
     fun save(pessoa: PessoaForm): Pessoa = repository.save(
         Pessoa(
-            id= pessoa.id,
-                nome= pessoa.nome,
+            id = pessoa.id,
+                nome = pessoa.nome,
                 dataNascimento = pessoa.dataNascimento,
                 celular = pessoa.celular,
                 cpfCnpj = pessoa.cpfCnpj,

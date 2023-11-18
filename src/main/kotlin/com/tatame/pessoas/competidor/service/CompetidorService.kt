@@ -1,21 +1,32 @@
 package com.tatame.pessoas.competidor.service
 
 import com.tatame.academia.entity.Academia
+import com.tatame.academia.repository.AcademiaRepository
 import com.tatame.endereco.entity.Cidade
 import com.tatame.endereco.entity.Endereco
+import com.tatame.endereco.repository.CidadeRepository
 import com.tatame.pessoas.competidor.entity.Competidor
 import com.tatame.pessoas.competidor.entity.CompetidorForm
 import com.tatame.pessoas.competidor.repository.CompetidorRepository
 import com.tatame.endereco.service.EnderecoService
 import com.tatame.faixa.entity.Faixa
+import com.tatame.faixa.repository.FaixaRepository
 import com.tatame.pessoas.pessoa.entity.Pessoa
+import com.tatame.pessoas.pessoa.repository.PessoaRepository
+import org.springframework.data.jpa.domain.AbstractPersistable_.id
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import java.util.*
+import kotlin.NoSuchElementException
 
 @Service
 class CompetidorService(
     private val repository: CompetidorRepository,
-    private val enderecoService: EnderecoService
+    private val enderecoService: EnderecoService,
+    private val academiaRepository: AcademiaRepository,
+    private val faixaRepository: FaixaRepository,
+    private val pessoaRepository: PessoaRepository,
+    private val cidadeRepository: CidadeRepository
 ) {
     @Transactional(readOnly = true)
     fun findAll(): List<Competidor> = repository.findAll()
@@ -24,20 +35,28 @@ class CompetidorService(
     fun findById(id: Short): Competidor? = repository.findById(id).orElse(null)
 
     @Transactional
-    fun save(competidor: CompetidorForm): Competidor = repository.save(
-        Competidor(
-            academia = Academia(nome = competidor.academia.nome, id = competidor.academia.id, pessoa = null ),
-            faixa = Faixa(competidor.faixa.id, competidor.faixa.cor),
-            pessoa = Pessoa(id= competidor.pessoa.id,
-                nome= competidor.pessoa.nome,
-                dataNascimento = competidor.pessoa.dataNascimento,
-                celular = competidor.pessoa.celular,
-                cpfCnpj = competidor.pessoa.cpfCnpj,
-                foto = competidor.pessoa.foto,
-                endereco = Endereco(id = competidor.pessoa.endereco!!.id, rua = competidor.pessoa.endereco.rua, numero = competidor.pessoa.endereco.numero, complemento = competidor.pessoa.endereco.complemento, cep = competidor.pessoa.endereco.cep, cidade = Cidade(id= competidor.pessoa.endereco.cidade.id, nome = competidor.pessoa.endereco.cidade.nome ))
+    fun save(competidor: CompetidorForm): Competidor  {
+
+        val academia: Academia = academiaRepository.findById(competidor.idAcademia).orElseThrow {NoSuchElementException("Não existe academia com o numero ${competidor.idFaixa}")}
+        val faixa: Faixa = faixaRepository.findById(competidor.idFaixa).orElseThrow { NoSuchElementException("Não existe faixa com o código ${competidor.idFaixa}") }
+
+        val enderecoCompeenderecoStidor: Endereco = enderecoService.save(competidor.endereco)
+
+        return repository.save(
+            Competidor(
+                academia = academia,
+                faixa = faixa,
+                pessoa = Pessoa(
+                    id = null,
+                    nome = competidor.nomeCompetidor,
+                    dataNascimento = competidor.dataNascimento,
+                    celular = competidor.celular,
+                    cpfCnpj = competidor.cnpjcpj,
+                    foto = competidor.foto,
+                    endereco =enderecoCompeenderecoStidor )
+                )
             )
-        )
-    )
+    }
 
     @Transactional
     fun deleteById(id: Short) = repository.deleteById(id)

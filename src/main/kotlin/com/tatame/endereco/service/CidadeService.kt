@@ -14,4 +14,8 @@ class CidadeService(private val cidadeRepository: CidadeRepository) {
         return cidadeRepository.save(Cidade(nome = cidade.nome))
     }
 
+    fun findById(idCidade: Int): Cidade {
+        return cidadeRepository.findById(idCidade).orElseThrow { NoSuchElementException("Cidade não cadastrada ${idCidade}") }
+    }
+
 }
