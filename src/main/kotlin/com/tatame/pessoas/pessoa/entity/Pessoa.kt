@@ -1,11 +1,9 @@
 package com.tatame.pessoas.pessoa.entity
 
-
 import com.tatame.endereco.entity.Endereco
 import jakarta.persistence.*
 import java.math.BigInteger
 import java.util.*
-
 
 @Entity
 @Table(name = "Pessoa")

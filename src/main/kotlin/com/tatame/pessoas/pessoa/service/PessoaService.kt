@@ -1,7 +1,9 @@
 package com.tatame.pessoas.pessoa.service
 
-import com.tatame.endereco.entity.Cidade
+
 import com.tatame.endereco.entity.Endereco
+import com.tatame.endereco.entity.EnderecoForm
+import com.tatame.endereco.repository.CidadeRepository
 import com.tatame.endereco.service.EnderecoService
 import com.tatame.pessoas.pessoa.entity.Pessoa
 import com.tatame.pessoas.pessoa.entity.PessoaForm
@@ -11,7 +13,8 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 class PessoaService(private val repository: PessoaRepository,
-                    private val enderecoService: EnderecoService
+                    private val enderecoService: EnderecoService,
+                    private val cidadeRepository: CidadeRepository
 ) {
     @Transactional(readOnly = true)
     fun findAll(): List<Pessoa> = repository.findAll()
@@ -23,17 +26,28 @@ class PessoaService(private val repository: PessoaRepository,
     fun deleteById(id: Int)  = repository.deleteById(id)
 
     @Transactional
-    fun save(pessoa: PessoaForm): Pessoa = repository.save(
-        Pessoa(
-            id = pessoa.id,
-                nome = pessoa.nome,
-                dataNascimento = pessoa.dataNascimento,
-                celular = pessoa.celular,
-                cpfCnpj = pessoa.cpfCnpj,
-                dddCelular = pessoa.dddCelular,
-                foto = pessoa.foto,
-                endereco = Endereco(id = pessoa.endereco!!.id, rua = pessoa.endereco.rua, numero = pessoa.endereco.numero, complemento = pessoa.endereco.complemento, cep = pessoa.endereco.cep, cidade = Cidade(id= pessoa.endereco.cidade.id, nome = pessoa.endereco.cidade.nome ))
-            )
-    )
+    fun save(pessoa: PessoaForm): Pessoa {
+
+        val endereco: Endereco = enderecoService.save(
+            EnderecoForm(
+                rua = pessoa.endereco!!.rua,
+                numero = pessoa.endereco.numero,
+                complemento = pessoa.endereco.complemento,
+                cep = pessoa.endereco.cep,
+                idCidade =  pessoa.endereco!!.idCidade
+        ))
+
+        return repository.save(Pessoa(
+            id = null,
+            nome = pessoa.nome,
+            dataNascimento = pessoa.dataNascimento,
+            celular = pessoa.celular,
+            cpfCnpj = pessoa.cpfCnpj,
+            dddCelular = pessoa.dddCelular,
+            foto = pessoa.foto,
+            endereco = endereco) )
+
+
+    }
 
 }

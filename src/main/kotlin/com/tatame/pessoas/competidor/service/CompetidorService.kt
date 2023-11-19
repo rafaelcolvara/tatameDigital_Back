@@ -24,10 +24,8 @@ class CompetidorService(
     private val repository: CompetidorRepository,
     private val enderecoService: EnderecoService,
     private val academiaRepository: AcademiaRepository,
-    private val faixaRepository: FaixaRepository,
-    private val pessoaRepository: PessoaRepository,
-    private val cidadeRepository: CidadeRepository
-) {
+    private val faixaRepository: FaixaRepository
+   ) {
     @Transactional(readOnly = true)
     fun findAll(): List<Competidor> = repository.findAll()
 
