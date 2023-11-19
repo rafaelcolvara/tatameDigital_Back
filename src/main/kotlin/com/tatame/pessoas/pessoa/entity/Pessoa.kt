@@ -2,35 +2,37 @@ package com.tatame.pessoas.pessoa.entity
 
 import com.tatame.endereco.entity.Endereco
 import jakarta.persistence.*
+import org.hibernate.annotations.DynamicUpdate
 import java.math.BigInteger
 import java.util.*
 
 @Entity
 @Table(name = "Pessoa")
+@DynamicUpdate
 class Pessoa(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int?,
 
     @Column(nullable = false)
-    val nome: String,
+    var nome: String,
 
     @Column(name = "dtNascimento", nullable = false)
-    val dataNascimento: Date?,
+    var dataNascimento: Date?,
 
     @Column(name = "dddCelular", nullable = false)
-    val dddCelular: Int,
+    var dddCelular: Int,
 
     @Column(name = "celular", nullable = false)
-    val celular: Int,
+    var celular: Int,
 
     @Column(name = "cpfcnpj", nullable = false)
-    val cpfCnpj: BigInteger?,
+    var cpfCnpj: BigInteger?,
 
     @Column(name = "foto")
-    val foto: String?,
+    var foto: String?,
 
     @ManyToOne
     @JoinColumn(name = "id_Endereco")
-    val endereco: Endereco?
+    var endereco: Endereco?
 )

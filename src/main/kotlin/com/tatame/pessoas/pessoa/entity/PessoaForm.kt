@@ -10,12 +10,12 @@ import java.util.*
 
 data class PessoaForm(
 
-
-    val nome: String,
-    val dataNascimento: Date,
-    val celular: Int,
-    val dddCelular: Int,
-    val cpfCnpj: BigInteger,
+    val idPessoa: Int,
+    val nome: String?,
+    val dataNascimento: Date?,
+    val celular: Int?,
+    val dddCelular: Int?,
+    val cpfCnpj: BigInteger?,
     val foto: String?,
     val endereco: EnderecoForm?
 )

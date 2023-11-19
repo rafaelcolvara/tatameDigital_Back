@@ -27,14 +27,20 @@ data class PessoaController(private val pessoaService: PessoaService){
 
     @PostMapping
     fun create(@RequestBody pessoa: PessoaForm): ResponseEntity<Pessoa> {
-        return ResponseEntity.ok(pessoaService.save(pessoa))
+        return ResponseEntity.ok(pessoaService.saveFullData(pessoa))
+    }
+
+    @PutMapping("/dados-pessoais/{id}")
+    fun updateDadosPessoais(@PathVariable id: Int, @RequestBody updatedPessoaForm: PessoaForm): ResponseEntity<Pessoa> {
+        return ResponseEntity.ok(pessoaService.updatePersonalData(id, updatedPessoaForm))
     }
 
     @PutMapping("/{id}")
-    fun update(@PathVariable id: Int, @RequestBody updatedPessoaForm: PessoaForm): ResponseEntity<Pessoa> {
+    fun updateFullData(@PathVariable id: Int, @RequestBody updatedPessoaForm: PessoaForm): ResponseEntity<Pessoa> {
         if (pessoaService.findById(id) == null) return ResponseEntity.notFound().build()
-        return ResponseEntity.ok(pessoaService.save(updatedPessoaForm))
+        return ResponseEntity.ok(pessoaService.saveFullData(updatedPessoaForm))
     }
+
 
     @DeleteMapping("/{id}")
     fun delete(@PathVariable id: Int): ResponseEntity<Void> {
