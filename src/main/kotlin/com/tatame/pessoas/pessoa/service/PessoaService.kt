@@ -4,12 +4,16 @@ package com.tatame.pessoas.pessoa.service
 import com.tatame.endereco.entity.Endereco
 import com.tatame.endereco.entity.EnderecoForm
 import com.tatame.endereco.service.EnderecoService
+import com.tatame.pessoas.pessoa.EnumCategoriaIdade
 import com.tatame.pessoas.pessoa.entity.Pessoa
 import com.tatame.pessoas.pessoa.entity.PessoaForm
 import com.tatame.pessoas.pessoa.repository.PessoaRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import java.util.Objects
+import java.time.LocalDate
+import java.time.Period
+import java.util.*
+import kotlin.NoSuchElementException
 
 @Service
 class PessoaService(private val pessoaRepository: PessoaRepository,
@@ -63,5 +67,8 @@ class PessoaService(private val pessoaRepository: PessoaRepository,
 
 
     }
+
+
+
 
 }

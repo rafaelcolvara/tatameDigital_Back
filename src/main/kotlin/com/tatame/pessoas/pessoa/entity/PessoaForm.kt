@@ -6,13 +6,14 @@ import jakarta.persistence.Column
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
 import java.math.BigInteger
+import java.time.LocalDate
 import java.util.*
 
 data class PessoaForm(
 
     val idPessoa: Int,
     val nome: String?,
-    val dataNascimento: Date?,
+    val dataNascimento: LocalDate?,
     val celular: Int?,
     val dddCelular: Int?,
     val cpfCnpj: BigInteger?,

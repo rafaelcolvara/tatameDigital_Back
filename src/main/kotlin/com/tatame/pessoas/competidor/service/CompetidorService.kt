@@ -2,6 +2,7 @@ package com.tatame.pessoas.competidor.service
 
 import com.tatame.academia.entity.Academia
 import com.tatame.academia.repository.AcademiaRepository
+import com.tatame.conf.Util
 import com.tatame.endereco.entity.Cidade
 import com.tatame.endereco.entity.Endereco
 import com.tatame.endereco.repository.CidadeRepository
@@ -11,6 +12,8 @@ import com.tatame.pessoas.competidor.repository.CompetidorRepository
 import com.tatame.endereco.service.EnderecoService
 import com.tatame.faixa.entity.Faixa
 import com.tatame.faixa.repository.FaixaRepository
+import com.tatame.pessoas.competidor.entity.CompetidorDTO
+import com.tatame.pessoas.pessoa.EnumCategoriaIdade
 import com.tatame.pessoas.pessoa.entity.Pessoa
 import com.tatame.pessoas.pessoa.repository.PessoaRepository
 import org.springframework.data.jpa.domain.AbstractPersistable_.id
@@ -30,7 +33,14 @@ class CompetidorService(
     fun findAll(): List<Competidor> = repository.findAll()
 
     @Transactional(readOnly = true)
-    fun findById(id: Short): Competidor? = repository.findById(id).orElse(null)
+    fun findById(id: Short): CompetidorDTO{
+
+        val competidorEntity = repository.findById(id).orElseThrow {NoSuchElementException ("Código ${id} não encontrado")}
+        return CompetidorDTO(nomeCompetidor = competidorEntity.pessoa.nome,
+            academia = competidorEntity.academia!!.nome,
+            categoriaIdade = competidorEntity.categoriaIdade
+        )
+    }
 
     @Transactional
     fun save(competidor: CompetidorForm): Competidor  {
@@ -52,7 +62,9 @@ class CompetidorService(
                     dddCelular = competidor.dddCelular,
                     cpfCnpj = competidor.cnpjcpj,
                     foto = competidor.foto,
-                    endereco =enderecoCompeenderecoStidor )
+                    endereco = enderecoCompeenderecoStidor
+                    ),
+                categoriaIdade =  Util.determineAgeCategory(competidor.dataNascimento)
                 )
             )
     }

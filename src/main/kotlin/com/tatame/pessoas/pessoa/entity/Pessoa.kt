@@ -4,6 +4,7 @@ import com.tatame.endereco.entity.Endereco
 import jakarta.persistence.*
 import org.hibernate.annotations.DynamicUpdate
 import java.math.BigInteger
+import java.time.LocalDate
 import java.util.*
 
 @Entity
@@ -18,7 +19,7 @@ class Pessoa(
     var nome: String,
 
     @Column(name = "dtNascimento", nullable = false)
-    var dataNascimento: Date?,
+    var dataNascimento: LocalDate?,
 
     @Column(name = "dddCelular", nullable = false)
     var dddCelular: Int,

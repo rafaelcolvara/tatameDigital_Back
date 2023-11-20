@@ -1,6 +1,7 @@
 package com.tatame.pessoas.competidor.controller
 
 import com.tatame.pessoas.competidor.entity.Competidor
+import com.tatame.pessoas.competidor.entity.CompetidorDTO
 import com.tatame.pessoas.competidor.entity.CompetidorForm
 import com.tatame.pessoas.competidor.service.CompetidorService
 import io.swagger.v3.oas.annotations.tags.Tag
@@ -19,8 +20,8 @@ class CompetidorController(private val service: CompetidorService) {
     }
 
     @GetMapping("/{id}")
-    fun getById(@PathVariable id: Short): ResponseEntity<Competidor> {
-        val competidor = service.findById(id) ?: return ResponseEntity.notFound().build()
+    fun getById(@PathVariable id: Short): ResponseEntity<CompetidorDTO> {
+        val competidor = service.findById(id)
         return ResponseEntity.ok(competidor)
     }
 
@@ -37,7 +38,6 @@ class CompetidorController(private val service: CompetidorService) {
 
     @DeleteMapping("/{id}")
     fun delete(@PathVariable id: Short): ResponseEntity<Void> {
-        if (service.findById(id) == null) return ResponseEntity.notFound().build()
         service.deleteById(id)
         return ResponseEntity.noContent().build()
     }

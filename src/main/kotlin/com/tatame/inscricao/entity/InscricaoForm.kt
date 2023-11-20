@@ -5,8 +5,6 @@ import java.time.LocalDateTime
 
 data class InscricaoForm (
 
-    val id: Int? = null,
-
     val pago: Boolean,
 
     val dtIncricao: LocalDateTime?,
