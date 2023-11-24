@@ -4,7 +4,7 @@ package com.tatame.pessoas.pessoa.service
 import com.tatame.endereco.entity.Endereco
 import com.tatame.endereco.entity.EnderecoForm
 import com.tatame.endereco.service.EnderecoService
-import com.tatame.pessoas.pessoa.EnumCategoriaIdade
+
 import com.tatame.pessoas.pessoa.entity.Pessoa
 import com.tatame.pessoas.pessoa.entity.PessoaForm
 import com.tatame.pessoas.pessoa.repository.PessoaRepository

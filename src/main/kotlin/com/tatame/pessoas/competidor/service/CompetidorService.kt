@@ -13,13 +13,10 @@ import com.tatame.endereco.service.EnderecoService
 import com.tatame.faixa.entity.Faixa
 import com.tatame.faixa.repository.FaixaRepository
 import com.tatame.pessoas.competidor.entity.CompetidorDTO
-import com.tatame.pessoas.pessoa.EnumCategoriaIdade
+
 import com.tatame.pessoas.pessoa.entity.Pessoa
-import com.tatame.pessoas.pessoa.repository.PessoaRepository
-import org.springframework.data.jpa.domain.AbstractPersistable_.id
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import java.util.*
 import kotlin.NoSuchElementException
 
 @Service

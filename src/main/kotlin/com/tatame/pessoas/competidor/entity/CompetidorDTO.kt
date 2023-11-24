@@ -1,6 +1,6 @@
 package com.tatame.pessoas.competidor.entity
 
-import com.tatame.pessoas.pessoa.EnumCategoriaIdade
+import com.tatame.categoria.interfaces.TipoCampeonato
 
 
 data class CompetidorDTO(
@@ -9,6 +9,6 @@ data class CompetidorDTO(
 
     val academia: String,
 
-    val categoriaIdade: EnumCategoriaIdade,
+    val categoriaIdade: TipoCampeonato,
 
     )
