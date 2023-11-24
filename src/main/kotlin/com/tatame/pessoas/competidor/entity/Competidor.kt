@@ -4,7 +4,7 @@ package com.tatame.pessoas.competidor.entity
 import com.tatame.academia.entity.Academia
 import com.tatame.conf.Util
 import com.tatame.faixa.entity.Faixa
-import com.tatame.pessoas.pessoa.EnumCategoriaIdade
+import com.tatame.pessoas.pessoa.d EnumCategoriaIdade
 import com.tatame.pessoas.pessoa.entity.Pessoa
 import jakarta.persistence.*
 import java.time.LocalDate

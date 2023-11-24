@@ -1,6 +1,8 @@
-package com.tatame.pessoas.pessoa
+package com.tatame.categoria.enums
 
-enum class EnumCategoriaIdade {
+import com.tatame.categoria.interfaces.TipoCampeonato
+
+enum class EnumCategoriaIdade_FBJJ: TipoCampeonato {
     KIDS_1,
     KIDS_2,
     KIDS_3,
