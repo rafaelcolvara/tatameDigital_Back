@@ -15,3 +15,10 @@ The following guides illustrate how to use some features concretely:
 
 ### Swagger
 https://localhost:8080/swagger-ui/index.html
+
+### Para rodar apenas database via docker
+```
+docker run --name arena-postgres -e POSTGRES_PASSWORD=arenasenha -d -p 5432:5432 -v arena_postgres_data:/var/lib/postgresql/data postgres
+
+docker start arena-postgres
+```
