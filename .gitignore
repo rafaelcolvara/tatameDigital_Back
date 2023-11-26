@@ -140,3 +140,6 @@ build/
 ### VS Code ###
 .vscode/
 /target/
+
+### DS STORE ###
+.DS_Store
