@@ -3,12 +3,8 @@ package com.tatame.academia.service
 import com.tatame.academia.entity.Academia
 import com.tatame.academia.entity.AcademiaForm
 import com.tatame.academia.repository.AcademiaRepository
-import com.tatame.categoria.entity.Categoria
-import com.tatame.categoria.entity.CategoriaForm
-import com.tatame.categoria.repository.CategoriaRepository
 import com.tatame.pessoas.pessoa.entity.Pessoa
 import com.tatame.pessoas.pessoa.repository.PessoaRepository
-import com.tatame.pessoas.pessoa.service.PessoaService
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 

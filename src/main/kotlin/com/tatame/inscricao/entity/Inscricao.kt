@@ -34,6 +34,6 @@ data class Inscricao(
 
     @OneToOne()
     @JoinColumn(name = "id_Categoria")
-    val categoria: RegulamentoCategoria
+    val regulamentoCategoria: RegulamentoCategoria
 
 )

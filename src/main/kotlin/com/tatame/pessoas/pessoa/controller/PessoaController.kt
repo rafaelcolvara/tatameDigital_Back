@@ -1,8 +1,5 @@
 package com.tatame.pessoas.pessoa.controller
 
-import com.tatame.categoria.entity.Categoria
-import com.tatame.categoria.entity.CategoriaForm
-import com.tatame.categoria.service.CategoriaService
 import com.tatame.pessoas.pessoa.entity.Pessoa
 import com.tatame.pessoas.pessoa.entity.PessoaForm
 import com.tatame.pessoas.pessoa.service.PessoaService

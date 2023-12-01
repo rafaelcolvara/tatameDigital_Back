@@ -1,15 +1,13 @@
 package com.tatame.categoriaIdade.entity
 
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.Id
-import jakarta.persistence.Table
+import jakarta.persistence.*
 
 @Entity
-@Table(name="CategoriaIdade")
+@Table(name="categoria_idade")
 data class CategoriaIdade(
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int,
 
     @Column(name = "Nome")

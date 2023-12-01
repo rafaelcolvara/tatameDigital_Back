@@ -11,7 +11,7 @@ data class InscricaoForm (
 
     val id_Evento: Int?,
 
-    val id_Categoria: Int?,
+    val id_Competidor: Int?,
 
-    val id_Competidor: Int?
+    val id_Regulamento_Categoria: Int?,
 )
