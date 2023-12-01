@@ -16,6 +16,6 @@ data class CompetidorForm(
     val dddCelular: Int,
     val cnpjcpj: BigInteger,
     val foto: String,
-    val endereco: EnderecoForm
-
+    val endereco: EnderecoForm,
+    val peso: Double
 )

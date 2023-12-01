@@ -2,16 +2,9 @@ package com.tatame.pessoas.competidor.entity
 
 
 import com.tatame.academia.entity.Academia
-import com.tatame.categoria.interfaces.TipoCampeonato
-import com.tatame.conf.Util
 import com.tatame.faixa.entity.Faixa
-
 import com.tatame.pessoas.pessoa.entity.Pessoa
 import jakarta.persistence.*
-import java.time.LocalDate
-import java.time.Period
-
-
 
 @Entity
 @Table(name = "Competidor")
@@ -34,15 +27,7 @@ class Competidor(
     @JoinColumn(name = "id_Pessoa")
     val pessoa: Pessoa,
 
-    @Transient
-    var categoriaIdade: TipoCampeonato
-){
+    @Column(name = "peso")
+    val peso: Double
 
-
-    @PostLoad
-    @PrePersist
-    @PreUpdate
-    private fun onLoading() {
-        this.categoriaIdade =  Util.determineAgeCategory(this.pessoa.dataNascimento!! )
-    }
-}
+ )

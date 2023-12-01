@@ -1,11 +1,17 @@
 package com.tatame.inscricao.entity
 
+import com.fasterxml.jackson.annotation.JsonBackReference
+import com.tatame.endereco.entity.Cidade
+import com.tatame.evento.entity.Evento
+import com.tatame.pessoas.competidor.entity.Competidor
+import com.tatame.regulamentoCategoria.entity.RegulamentoCategoria
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
 @Entity
 @Table(name = "Inscricao")
 data class Inscricao(
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true, updatable = false)
@@ -17,12 +23,17 @@ data class Inscricao(
     @Column(name = "dtInscricao", nullable = false)
     val dtIncricao: LocalDateTime?,
 
-    @Column(name = "idEvento", nullable = false)
-    val id_Evento: Int?,
+    @ManyToOne()
+    @JsonBackReference
+    @JoinColumn(name = "id_Evento", nullable = false)
+    val id_Evento: Evento,
 
-    @Column(name = "idCategoria", nullable= false)
-    val id_Categoria: Int?,
+    @OneToOne()
+    @JoinColumn(name = "id_Competidor")
+    val id_Competidor: Competidor,
 
-    @Column(name = "idCompetidor", nullable = false)
-    val id_Competidor: Int?
+    @OneToOne()
+    @JoinColumn(name = "id_Categoria")
+    val categoria: RegulamentoCategoria
+
 )

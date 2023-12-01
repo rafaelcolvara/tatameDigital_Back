@@ -2,10 +2,7 @@ package com.tatame.pessoas.competidor.service
 
 import com.tatame.academia.entity.Academia
 import com.tatame.academia.repository.AcademiaRepository
-import com.tatame.conf.Util
-import com.tatame.endereco.entity.Cidade
 import com.tatame.endereco.entity.Endereco
-import com.tatame.endereco.repository.CidadeRepository
 import com.tatame.pessoas.competidor.entity.Competidor
 import com.tatame.pessoas.competidor.entity.CompetidorForm
 import com.tatame.pessoas.competidor.repository.CompetidorRepository
@@ -35,7 +32,7 @@ class CompetidorService(
         val competidorEntity = repository.findById(id).orElseThrow {NoSuchElementException ("Código ${id} não encontrado")}
         return CompetidorDTO(nomeCompetidor = competidorEntity.pessoa.nome,
             academia = competidorEntity.academia!!.nome,
-            categoriaIdade = competidorEntity.categoriaIdade
+            peso = competidorEntity.peso
         )
     }
 
@@ -61,8 +58,8 @@ class CompetidorService(
                     foto = competidor.foto,
                     endereco = enderecoCompeenderecoStidor
                     ),
-                categoriaIdade =  Util.determineAgeCategory(competidor.dataNascimento)
-                )
+                peso = competidor.peso
+            )
             )
     }
 

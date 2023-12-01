@@ -1,5 +1,6 @@
 package com.tatame.evento.entity
 
+import com.tatame.regulamento.entity.Regulamento
 import jakarta.persistence.*
 import java.time.LocalDate
 @Entity
@@ -18,9 +19,11 @@ data class Evento(
     val dtEvento: LocalDate,
 
     @Column(name = "fotoEvento", nullable = true)
-    val fotoEvento: String
+    val fotoEvento: String,
 
-
+    @OneToOne()
+    @JoinColumn(name = "id_regra_evento")
+    val regulamento: Regulamento
 
 
 )
