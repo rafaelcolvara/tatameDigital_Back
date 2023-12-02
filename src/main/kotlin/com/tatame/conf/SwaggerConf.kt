@@ -17,7 +17,7 @@ class SwaggerConf {
     fun api(): GroupedOpenApi {
         return GroupedOpenApi.builder()
             .group("tatame-digital")
-            .packagesToScan("com.tatame.categoria.controller",
+            .packagesToScan(
                 "com.tatame.pessoas.competidor.controller",
                 "com.tatame.evento.controller",
                 "com.tatame.endereco.controller",

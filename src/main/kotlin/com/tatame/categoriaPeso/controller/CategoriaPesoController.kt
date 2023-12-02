@@ -1,7 +1,5 @@
 package com.tatame.categoriaPeso.controller
 
-import com.tatame.academia.entity.Academia
-import com.tatame.academia.entity.AcademiaForm
 import com.tatame.categoriaPeso.entity.CategoriaPeso
 import com.tatame.categoriaPeso.service.CategoriaPesoService
 import io.swagger.v3.oas.annotations.tags.Tag
@@ -11,7 +9,7 @@ import org.springframework.web.bind.annotation.*
 @Tag(name = "Categoria Peso")
 @RestController
 @RequestMapping("/categoriaPeso")
-class CategoriaPeso(private val categoriaPesoService: CategoriaPesoService) {
+class CategoriaPesoController(private val categoriaPesoService: CategoriaPesoService) {
 
 
     @GetMapping
