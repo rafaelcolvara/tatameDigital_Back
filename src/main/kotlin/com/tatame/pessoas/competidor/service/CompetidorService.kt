@@ -18,18 +18,18 @@ import kotlin.NoSuchElementException
 
 @Service
 class CompetidorService(
-    private val repository: CompetidorRepository,
+    private val competidorRepository: CompetidorRepository,
     private val enderecoService: EnderecoService,
     private val academiaRepository: AcademiaRepository,
     private val faixaRepository: FaixaRepository
    ) {
     @Transactional(readOnly = true)
-    fun findAll(): List<Competidor> = repository.findAll()
+    fun findAll(): List<Competidor> = competidorRepository.findAll()
 
     @Transactional(readOnly = true)
-    fun findById(id: Short): CompetidorDTO{
+    fun findById(id: Int): CompetidorDTO{
 
-        val competidorEntity = repository.findById(id).orElseThrow {NoSuchElementException ("Código ${id} não encontrado")}
+        val competidorEntity = competidorRepository.findById(id).orElseThrow {NoSuchElementException ("Código ${id} não encontrado")}
         return CompetidorDTO(nomeCompetidor = competidorEntity.pessoa.nome,
             academia = competidorEntity.academia!!.nome,
             peso = competidorEntity.peso
@@ -44,7 +44,7 @@ class CompetidorService(
 
         val enderecoCompeenderecoStidor: Endereco = enderecoService.save(competidor.endereco)
 
-        return repository.save(
+        return competidorRepository.save(
             Competidor(
                 academia = academia,
                 faixa = faixa,
@@ -64,7 +64,7 @@ class CompetidorService(
     }
 
     @Transactional
-    fun deleteById(id: Short) = repository.deleteById(id)
+    fun deleteById(id: Int) = competidorRepository.deleteById(id)
 
 }
 

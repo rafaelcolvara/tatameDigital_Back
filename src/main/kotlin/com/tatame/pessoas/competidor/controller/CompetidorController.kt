@@ -20,7 +20,7 @@ class CompetidorController(private val service: CompetidorService) {
     }
 
     @GetMapping("/{id}")
-    fun getById(@PathVariable id: Short): ResponseEntity<CompetidorDTO> {
+    fun getById(@PathVariable id: Int): ResponseEntity<CompetidorDTO> {
         val competidor = service.findById(id)
         return ResponseEntity.ok(competidor)
     }
@@ -31,13 +31,17 @@ class CompetidorController(private val service: CompetidorService) {
     }
 
     @PutMapping("/{id}")
-    fun update(@PathVariable id: Short, @RequestBody updatedCompetidor: CompetidorForm): ResponseEntity<Competidor> {
-        if (service.findById(id) == null) return ResponseEntity.notFound().build()
-        return ResponseEntity.ok(service.save(updatedCompetidor))
+    fun update(@PathVariable id: Int, @RequestBody updatedCompetidor: CompetidorForm): ResponseEntity<Competidor> {
+        try {
+            return ResponseEntity.ok(service.save(updatedCompetidor))
+        } catch (error: Exception){
+            return ResponseEntity.notFound().build()
+        }
+
     }
 
     @DeleteMapping("/{id}")
-    fun delete(@PathVariable id: Short): ResponseEntity<Void> {
+    fun delete(@PathVariable id: Int): ResponseEntity<Void> {
         service.deleteById(id)
         return ResponseEntity.noContent().build()
     }
