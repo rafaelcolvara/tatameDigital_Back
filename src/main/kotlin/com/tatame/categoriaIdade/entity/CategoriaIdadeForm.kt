@@ -11,9 +11,9 @@ data class CategoriaIdadeForm(
 
     val nome: String,
 
-    val idadeMinima: Double,
+    val idadeMinima: Int,
 
-    val idadeMaxima: Double
+    val idadeMaxima: Int
 )
 {
     fun toEntity(): CategoriaIdadeEntity{

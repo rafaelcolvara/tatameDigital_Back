@@ -14,10 +14,10 @@ data class CategoriaIdadeEntity(
     val nome: String,
 
     @Column(name = "IdadeMinima")
-    val idadeMinima: Double,
+    val idadeMinima: Int,
 
     @Column(name = "IdadeMaxima")
-    val idadeMaxima: Double
+    val idadeMaxima: Int
 
 )
 {
