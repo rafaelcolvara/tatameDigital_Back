@@ -1,6 +1,6 @@
 package com.tatame.categoriaPeso.service
 
-import com.tatame.categoriaIdade.entity.CategoriaIdadeEntity
+
 import com.tatame.categoriaPeso.entity.CategoriaPesoEntity
 import com.tatame.categoriaPeso.entity.CategoriaPesoForm
 import com.tatame.categoriaPeso.repository.CategoriaPesoRespository
