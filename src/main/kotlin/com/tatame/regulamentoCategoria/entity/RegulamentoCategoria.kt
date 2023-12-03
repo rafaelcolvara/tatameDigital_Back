@@ -1,6 +1,6 @@
 package com.tatame.regulamentoCategoria.entity
 
-import com.tatame.categoriaIdade.entity.CategoriaIdade
+import com.tatame.categoriaIdade.entity.CategoriaIdadeEntity
 import com.tatame.categoriaPeso.entity.CategoriaPeso
 import com.tatame.regulamento.entity.Regulamento
 import jakarta.persistence.*
@@ -24,7 +24,7 @@ data class RegulamentoCategoria(
 
     @ManyToOne
     @JoinColumn(name = "categoria_idade_id")
-    val categoriaIdade: CategoriaIdade,
+    val categoriaIdadeEntity: CategoriaIdadeEntity,
 
     @ManyToOne
     @JoinColumn(name = "categoria_peso_id")

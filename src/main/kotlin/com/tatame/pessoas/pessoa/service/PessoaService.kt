@@ -62,8 +62,6 @@ class PessoaService(private val pessoaRepository: PessoaRepository,
             dddCelular = pessoa.dddCelular!!,
             foto = pessoa.foto,
             endereco = endereco) )
-
-
     }
 
 
