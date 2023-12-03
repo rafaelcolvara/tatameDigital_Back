@@ -1,7 +1,7 @@
 package com.tatame.regulamento.entity
 
 import com.tatame.categoriaIdade.entity.CategoriaIdadeEntity
-import com.tatame.categoriaPeso.entity.CategoriaPeso
+import com.tatame.categoriaPeso.entity.CategoriaPesoEntity
 import jakarta.persistence.Embeddable
 import java.io.Serializable
 
@@ -10,7 +10,7 @@ data class RegulamentoCategoriaPK(
 
     val regulamento: Regulamento,
     val categoriaIdadeEntity: CategoriaIdadeEntity,
-    val categoriaPeso: CategoriaPeso
+    val categoriaPesoEntity: CategoriaPesoEntity
 
 ): Serializable {
     override fun equals(other: Any?): Boolean {
@@ -21,13 +21,13 @@ data class RegulamentoCategoriaPK(
 
         if (regulamento != other.regulamento) return false
         if (categoriaIdadeEntity != other.categoriaIdadeEntity) return false
-        return categoriaPeso == other.categoriaPeso
+        return categoriaPesoEntity == other.categoriaPesoEntity
     }
 
     override fun hashCode(): Int {
         var result = regulamento.hashCode()
         result = 31 * result + categoriaIdadeEntity.hashCode()
-        result = 31 * result + categoriaPeso.hashCode()
+        result = 31 * result + categoriaPesoEntity.hashCode()
         return result
     }
 }

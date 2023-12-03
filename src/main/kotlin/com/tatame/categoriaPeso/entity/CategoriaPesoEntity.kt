@@ -4,12 +4,19 @@ import jakarta.persistence.*
 
 @Entity
 @Table(name = "categoria_peso")
-data class CategoriaPeso(
+data class CategoriaPesoEntity(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int,
 
     @Column(name = "nome")
-    val nome: String
+    val nome: String,
+
+    @Column(name = "pesoMinimo")
+    val pesoMinimo: Double,
+
+    @Column(name = "pesoMaximo")
+    val pesoMaximo: Double
+
 )

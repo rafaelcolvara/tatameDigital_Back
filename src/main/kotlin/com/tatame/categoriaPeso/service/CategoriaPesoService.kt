@@ -1,10 +1,9 @@
 package com.tatame.categoriaPeso.service
 
-import com.tatame.academia.entity.Academia
-import com.tatame.academia.entity.AcademiaForm
-import com.tatame.categoriaPeso.entity.CategoriaPeso
+import com.tatame.categoriaIdade.entity.CategoriaIdadeEntity
+import com.tatame.categoriaPeso.entity.CategoriaPesoEntity
+import com.tatame.categoriaPeso.entity.CategoriaPesoForm
 import com.tatame.categoriaPeso.repository.CategoriaPesoRespository
-import com.tatame.pessoas.pessoa.entity.Pessoa
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -14,16 +13,22 @@ class CategoriaPesoService(
     val categoriaPesoRepository: CategoriaPesoRespository
 ) {
 
-    @Transactional(readOnly = true)
-    fun findAll(): List<CategoriaPeso> = categoriaPesoRepository.findAll()
+    fun findAll(): List<CategoriaPesoEntity> = categoriaPesoRepository.findAll()
 
-    @Transactional(readOnly = true)
-    fun findById(id: Int): CategoriaPeso? = categoriaPesoRepository.findById(id).orElse(null)
-
-    @Transactional
-    fun save(categoriaPeso: CategoriaPeso): CategoriaPeso {
-        return categoriaPesoRepository.save(categoriaPeso)
+    fun save(categoria: CategoriaPesoForm): CategoriaPesoEntity {
+        return categoriaPesoRepository.save(
+            CategoriaPesoEntity(
+            id = categoria.id,
+            pesoMaximo = categoria.pesoMaximo,
+            pesoMinimo = categoria.pesoMinimo,
+            nome = categoria.nome)
+        )
     }
+
+    fun findById(idCategoria: Int): CategoriaPesoEntity {
+        return categoriaPesoRepository.findById(idCategoria).orElseThrow { NoSuchElementException("Categoria não cadastrada ${idCategoria}") }
+    }
+
     @Transactional
     fun deleteById(id: Int) = categoriaPesoRepository.deleteById(id)
 
