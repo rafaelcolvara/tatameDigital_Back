@@ -18,6 +18,7 @@ class RegulamentoCategoriaService(val repository: RegulamentoCategoriaRepository
 
     fun findAll(): List<RegulamentoCategoriaEntity> = repository.findAll()
 
+    @Transactional
     fun save(regulamento: RegulamentoCategoriaForm): RegulamentoCategoriaEntity {
 
         try {
