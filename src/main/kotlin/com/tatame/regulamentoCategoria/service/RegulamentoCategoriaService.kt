@@ -8,8 +8,9 @@ import com.tatame.regulamentoCategoria.entity.RegulamentoCategoriaForm
 
 
 import com.tatame.regulamentoCategoria.repository.RegulamentoCategoriaRepository
+import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-
+@Service
 class RegulamentoCategoriaService(val repository: RegulamentoCategoriaRepository,
     val regulamentoRepository: RegulamentoRepository,
     val categoriaPesoRespository: CategoriaPesoRespository,
@@ -36,7 +37,7 @@ class RegulamentoCategoriaService(val repository: RegulamentoCategoriaRepository
                 )
             )
         } catch (e: Exception){
-            throw NoSuchElementException("Categoria ou regulamento não encontrado");
+            throw e;
         }
     }
 

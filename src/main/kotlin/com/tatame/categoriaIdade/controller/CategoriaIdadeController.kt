@@ -7,7 +7,7 @@ import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
-@Tag(name = "CategoriaIdade")
+@Tag(name = "Categoria Idade")
 @RestController
 @RequestMapping("/categoriaIdade")
 class CategoriaIdadeController(val categoriaIdadeService: CategoriaIdadeService) {
@@ -37,11 +37,9 @@ class CategoriaIdadeController(val categoriaIdadeService: CategoriaIdadeService)
             val categoriaIdadeEntity = categoriaIdadeService.findById(id);
             updatedCategoria.idCategoria = categoriaIdadeEntity.id
             return ResponseEntity.ok(categoriaIdadeService.save(updatedCategoria))
-
         }catch (e: Exception){
             return ResponseEntity.notFound().build()
         }
-
     }
 
     @DeleteMapping("/{id}")
@@ -50,12 +48,9 @@ class CategoriaIdadeController(val categoriaIdadeService: CategoriaIdadeService)
             categoriaIdadeService.findById(id)
             categoriaIdadeService.deleteById(id)
             return ResponseEntity.noContent().build()
-
         }catch (e: Exception){
             return ResponseEntity.notFound().build()
         }
-
-
     }
 
 }

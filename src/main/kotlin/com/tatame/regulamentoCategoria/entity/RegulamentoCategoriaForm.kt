@@ -8,7 +8,7 @@ import jakarta.persistence.*
 data class RegulamentoCategoriaForm(
 
 
-    val id: Int,
+    var id: Int?,
 
     val regulamentoId: Int,
 
