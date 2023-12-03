@@ -1,10 +1,9 @@
 package com.tatame.inscricao.entity
 
 import com.fasterxml.jackson.annotation.JsonBackReference
-import com.tatame.endereco.entity.Cidade
 import com.tatame.evento.entity.Evento
 import com.tatame.pessoas.competidor.entity.Competidor
-import com.tatame.regulamentoCategoria.entity.RegulamentoCategoria
+import com.tatame.regulamentoCategoria.entity.RegulamentoCategoriaEntity
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
@@ -34,6 +33,6 @@ data class Inscricao(
 
     @OneToOne()
     @JoinColumn(name = "id_Categoria")
-    val regulamentoCategoria: RegulamentoCategoria
+    val regulamentoCategoriaEntity: RegulamentoCategoriaEntity
 
 )

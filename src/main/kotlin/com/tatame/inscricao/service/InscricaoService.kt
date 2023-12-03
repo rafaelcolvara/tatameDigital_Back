@@ -34,7 +34,7 @@ class InscricaoService (private val inscricaoRepository: InscricaoRepository,
                 id_Competidor = competidor,
                 id_Evento = evento,
                 pago = inscricao.pago,
-                regulamentoCategoria = regulamentoCategoria
+                regulamentoCategoriaEntity = regulamentoCategoria
             )
         )
     }

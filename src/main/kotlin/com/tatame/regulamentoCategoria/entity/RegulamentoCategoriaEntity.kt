@@ -12,11 +12,11 @@ import jakarta.persistence.*
         UniqueConstraint(columnNames = ["regulamento_id", "categoria_idade_id", "categoria_peso_id"])
     ]
 )
-data class RegulamentoCategoria(
+data class RegulamentoCategoriaEntity(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    val id: Int?,
 
     @ManyToOne
     @JoinColumn(name = "regulamento_id")
