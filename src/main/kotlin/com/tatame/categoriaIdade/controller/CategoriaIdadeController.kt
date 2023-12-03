@@ -33,8 +33,15 @@ class CategoriaIdadeController(val categoriaIdadeService: CategoriaIdadeService)
 
     @PutMapping("/{id}")
     fun update(@PathVariable id: Int, @RequestBody updatedCategoria: CategoriaIdadeForm): ResponseEntity<CategoriaIdadeEntity> {
-        if (categoriaIdadeService.findById(id) == null) return ResponseEntity.notFound().build()
-        return ResponseEntity.ok(categoriaIdadeService.save(updatedCategoria))
+        try {
+            val categoriaIdadeEntity = categoriaIdadeService.findById(id);
+            updatedCategoria.idCategoria = categoriaIdadeEntity.id
+            return ResponseEntity.ok(categoriaIdadeService.save(updatedCategoria))
+
+        }catch (e: Exception){
+            return ResponseEntity.notFound().build()
+        }
+
     }
 
     @DeleteMapping("/{id}")

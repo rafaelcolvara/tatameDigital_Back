@@ -20,3 +20,11 @@ data class CategoriaIdadeEntity(
     val idadeMaxima: Double
 
 )
+{
+    fun toForm(): CategoriaIdadeForm{
+        return CategoriaIdadeForm(idCategoria = this.id,
+            idadeMinima = this.idadeMinima,
+            idadeMaxima = this.idadeMaxima,
+            nome = this.nome)
+    }
+}

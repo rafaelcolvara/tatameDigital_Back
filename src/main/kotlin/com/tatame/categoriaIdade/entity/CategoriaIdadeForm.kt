@@ -7,7 +7,7 @@ import jakarta.persistence.Id
 
 data class CategoriaIdadeForm(
 
-    val idCategoria: Int?,
+    var idCategoria: Int?,
 
     val nome: String,
 
@@ -15,3 +15,11 @@ data class CategoriaIdadeForm(
 
     val idadeMaxima: Double
 )
+{
+    fun toEntity(): CategoriaIdadeEntity{
+        return CategoriaIdadeEntity(id = this.idCategoria,
+            nome = this.nome,
+            idadeMinima = this.idadeMinima,
+            idadeMaxima = this.idadeMaxima)
+    }
+}
