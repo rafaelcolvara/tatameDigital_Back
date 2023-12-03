@@ -5,7 +5,6 @@ import com.tatame.inscricao.entity.Inscricao
 import com.tatame.inscricao.entity.InscricaoForm
 import com.tatame.inscricao.repository.InscricaoRepository
 import com.tatame.pessoas.competidor.repository.CompetidorRepository
-import com.tatame.regulamento.entity.RegulamentoCategoriaPK
 import com.tatame.regulamentoCategoria.repository.RegulamentoCategoriaRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional

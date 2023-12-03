@@ -42,7 +42,6 @@ class CategoriaPesoController(private val categoriaPesoService: CategoriaPesoSer
         }catch (e: Exception){
             return ResponseEntity.notFound().build()
         }
-
     }
 
     @DeleteMapping("/{id}")
@@ -51,12 +50,9 @@ class CategoriaPesoController(private val categoriaPesoService: CategoriaPesoSer
             categoriaPesoService.findById(id)
             categoriaPesoService.deleteById(id)
             return ResponseEntity.noContent().build()
-
         }catch (e: Exception){
             return ResponseEntity.notFound().build()
         }
-
-
     }
 
 }

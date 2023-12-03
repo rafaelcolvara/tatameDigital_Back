@@ -1,6 +1,6 @@
 package com.tatame.evento.entity
 
-import com.tatame.regulamento.entity.Regulamento
+import com.tatame.regulamento.entity.RegulamentoEntity
 import jakarta.persistence.*
 import java.time.LocalDate
 @Entity
@@ -23,7 +23,7 @@ data class Evento(
 
     @OneToOne()
     @JoinColumn(name = "id_regra_evento")
-    val regulamento: Regulamento
+    val regulamentoEntity: RegulamentoEntity
 
 
 )

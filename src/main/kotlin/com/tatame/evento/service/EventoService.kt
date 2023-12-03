@@ -19,7 +19,7 @@ data class EventoService(private val eventoRepository: EventoRepository){
         Evento( nome = evento.nome,
             dtEvento = evento.dtEvento,
             fotoEvento = evento.fotoEvento,
-            regulamento = evento.regulamento)
+            regulamentoEntity = evento.regulamentoEntity)
     )
     @Transactional
     fun deleteById(id: Int) = eventoRepository.deleteById(id)
