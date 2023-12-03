@@ -46,9 +46,16 @@ class CategoriaIdadeController(val categoriaIdadeService: CategoriaIdadeService)
 
     @DeleteMapping("/{id}")
     fun delete(@PathVariable id: Int): ResponseEntity<Void> {
-        if (categoriaIdadeService.findById(id) == null) return ResponseEntity.notFound().build()
-        categoriaIdadeService.deleteById(id)
-        return ResponseEntity.noContent().build()
+        try {
+            categoriaIdadeService.findById(id)
+            categoriaIdadeService.deleteById(id)
+            return ResponseEntity.noContent().build()
+
+        }catch (e: Exception){
+            return ResponseEntity.notFound().build()
+        }
+
+
     }
 
 }
